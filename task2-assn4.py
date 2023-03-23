@@ -35,6 +35,9 @@ string += pay_rate.rjust(9)
 #calculate gross pay
 gross = round(float(hours) * float(pay_rate), 2)
 
+#format to get 2 decimal places
+gross = '{:.2f}'.format(gross)
+
 string += '\n' + 'Gross Pay: '.rjust(33) + '$'
 string += str(gross).rjust(9)
 
@@ -47,24 +50,36 @@ string += 'Deductions'.center(50)
 #calculate federal witholding
 fed_withold = round(float(fed_tax) * float(gross), 3)
 
+#format for decimal places
+fed_withold = '{:.2f}'.format(fed_withold)
+
 string += '\n' + ('Federal Witholding (' + fed_tax + '): ').rjust(33) + '$'
 string += str(fed_withold).rjust(9)
 
 #state whitholding
 state_withold = round(float(state_tax) * float(gross), 3)
 
+#format for decimal places
+state_withold = '{:.2f}'.format(state_withold)
+
 string += '\n' + ('State Witholding (' + state_tax + '): ').rjust(33) + '$'
 string += str(state_withold).rjust(9)
 
 #total deductions
-total_takes = round(state_withold + fed_withold, 3)
+total_takes = round(float(state_withold) + float(fed_withold), 3)
+
+#format for decimal places
+total_takes = '{:.2f}'.format(total_takes)
 
 string += '\n' + 'Total Deductions: '.rjust(33) + '$'
 string += str(total_takes).rjust(9)
 
 
 ## NET PAY ##
-net_pay = round(gross - total_takes, 3)
+net_pay = round(float(gross) - float(total_takes), 3)
+
+#format for decimal places
+net_pay = '{:.2f}'.format(net_pay)
 
 string += '\n \n' + 'Net Pay: '.rjust(33) + '$'
 string += str(net_pay).rjust(9)
