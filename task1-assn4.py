@@ -2,16 +2,17 @@
 import math
 from math import pi
 
-#ask user for the number of sides (shape) and the length of each side
 print('Welcome to calculating area of regular polygon, yayyy!!')
+
+#ask user for the number of sides (shape) and the length of each side
 sides = int(input('how many sides does this lovley polygon have: '))
 length = float(input('how long is each side: '))
 
-#calculate
+#calculate (broken into 2 sections for simplicity)
 top = sides*math.pow(length, 2)
 bottom = 4*math.tan(pi/sides)
 
 #finish calculations and round
-area = round(top/bottom, 2)
+area = round(top/bottom, 5)
 
 print('area of your polygon is ' + str(area))
