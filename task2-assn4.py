@@ -33,7 +33,7 @@ string += '\n' + 'Pay rate: '.rjust(33) + '$'
 string += pay_rate.rjust(9)
 
 #calculate gross pay
-gross = float(hours) * float(pay_rate)
+gross = round(float(hours) * float(pay_rate), 2)
 
 string += '\n' + 'Gross Pay: '.rjust(33) + '$'
 string += str(gross).rjust(9)
@@ -63,7 +63,7 @@ string += '\n' + 'Total Deductions: '.rjust(33) + '$'
 string += str(total_takes).rjust(9)
 
 
-##NET PAY##
+## NET PAY ##
 net_pay = round(gross - total_takes, 3)
 
 string += '\n \n' + 'Net Pay: '.rjust(33) + '$'
