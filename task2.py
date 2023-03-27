@@ -61,4 +61,3 @@ turtle.end_fill()
 turtle.setheading(90)
 turtle.penup()
 turtle.forward(diameter/4)
-
