@@ -62,23 +62,21 @@ def drawChessboard(startx, starty, width = 250, height = 250):
 
 def main():
     #### Add Code to get input from user ####
-    startx = int(input('Enter the desired x location of the center of chessboard: '))
-    starty = int(input('Enter the desired y location of the center of chessboard: '))
-    width = int(input('Enter the desired width of the chessboard: '))
-    height = int(input('Enter the desired height of the chessboard: '))
+    startx = int(input('Enter the desired x location of the bottom left of chessboard: '))
+    starty = int(input('Enter the desired y location of the bottom left of chessboard: '))
+    width = input('Enter the desired width of the chessboard: ')
+    height = input('Enter the desired height of the chessboard: ')
 
-    startx -= width / 2
-    starty -= height / 2
     #### End Add Code to get input from user ####
 
     if width == "" and height == "":
         drawChessboard(startx, starty)
     elif height == "":
-        drawChessboard(startx, starty, width)
+        drawChessboard(startx, starty, width=eval(width))
     elif width == "":
-        drawChessboard(startx, starty, height)
+        drawChessboard(startx, starty, height=eval(height))
     else:
-        drawChessboard(startx, starty, width, height)
+        drawChessboard(startx, starty, eval(width), eval(height))
 
 
 main()
