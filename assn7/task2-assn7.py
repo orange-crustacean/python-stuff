@@ -9,8 +9,14 @@ import turtle
 #### End Add Imp
 
 tim = turtle.Turtle()
+tim.penup()
+tim.shape('classic')
+tim.color('purple', 'white')
+tim.speed(5)
+tim.pensize(3)
 
 def draw_rect(w, h):
+    tim.pendown()
     tim.begin_fill()
     tim.setheading(0)
     tim.forward(w)
@@ -22,34 +28,32 @@ def draw_rect(w, h):
     tim.forward(h)
     tim.end_fill()
     tim.setheading(0)
-    tim.forward(w)
-
+    tim.penup()
 
 
 def drawChessboard(startx, starty, width = 250, height = 250):
-    tim.penup()
-    tim.color('blue')
-    tim.speed(4)
-    tim.goto(startx, starty)
 
-    #draw rectangle
-    tim.pendown()
+    #draw outline
     tim.goto(startx, starty)
+    tim.pendown()
     draw_rect(width, height)
 
     square_width = width / 8
     square_height = height / 8
 
     tim.color('black')
+    tim.speed(15)
+    tim.pensize(0)
+    tim.hideturtle()
 
-    for i in range(1,5):
+    for i in range(1,9):
         m = i % 2
         
         for j in range(4):
             tim.pendown()
             draw_rect(square_width, square_height)
 
-            tim.forward(square_width)
+            tim.forward(square_width * 2)
         
         tim.penup()
         tim.goto(startx + square_width * m, starty + square_height * i)

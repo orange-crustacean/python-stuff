@@ -7,7 +7,7 @@ def make_pyramid(rows):
         for j in range(i):
             row += str(i)
             if j < i - 1:
-                row += '.'
+                row += ''
         
         length = (len(str(rows)) + 1) * rows
         row = row.center(length)
