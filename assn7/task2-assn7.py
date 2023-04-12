@@ -42,7 +42,7 @@ def drawChessboard(startx, starty, width = 250, height = 250):
     square_height = height / 8
 
     tim.color('black')
-    tim.speed(15)
+    tim.speed(35)
     tim.pensize(0)
     tim.hideturtle()
 
