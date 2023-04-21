@@ -72,7 +72,10 @@ def main():
         #### Add Statement(s) to clear drawings and play again ####
         if response.strip():
             response = eval(response)
-        elif response == 1:
+        else:
+            continue
+        
+        if response == 1:
             continue
         elif response == 2:
             pattern.reset()
