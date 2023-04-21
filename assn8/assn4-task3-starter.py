@@ -1,11 +1,7 @@
-'''
-    This is the starter file. Only fill in the areas indicated.
-    Do not modify existing code.
-    Replace this file header with the normal file header (name, etc)
-'''
+
 
 #### Add Import Statement(s) as needed ####
-import assn8.pattern as pattern
+import pattern
 #### End Add Import Statement(s) ####
 
 
@@ -23,8 +19,11 @@ def main():
         print("1) Rectangle Pattern")
         print("2) Circle Pattern")
         print("3) Super Pattern")
-        mode = eval(input("Which mode do you want to play? 1, 2 or 3: "))
-
+        mode = input("Which mode do you want to play? 1, 2 or 3: ")
+        if mode.strip():
+            mode = eval(mode)
+        else:
+            continue
         # If they choose 'Rectangle Patterns'
         if mode == 1:
             #### Add Input Statement(s) as needed ####
@@ -69,9 +68,11 @@ def main():
         print("1) Yes, and keep drawings")
         print("2) Yes, and clear drawings")
         print("3) No, I am all done")
-        response = eval(input("Choose 1, 2, or 3: "))
+        response = input("Choose 1, 2, or 3: ")
         #### Add Statement(s) to clear drawings and play again ####
-        if response == 1:
+        if response.strip():
+            response = eval(response)
+        elif response == 1:
             continue
         elif response == 2:
             pattern.reset()
