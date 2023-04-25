@@ -74,7 +74,7 @@ def main():
             response = eval(response)
         else:
             continue
-        
+
         if response == 1:
             continue
         elif response == 2:
