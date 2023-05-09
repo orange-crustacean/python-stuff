@@ -1,8 +1,16 @@
 import random            
 
 def main():
+
+    makef = open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "a")
+    with open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "r") as readf:
+        lines = readf.readlines()
+        for i in range(0, len(lines)):
+            lines[i] = int(lines[i])
+    writef = open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "w")
+        
     print("I'm thinking of a number between 1 and 100.")
-    guesses = 0
+    guesses = 1
     guessing = True
     num = random.randint(1,100)
     while guessing:
@@ -24,21 +32,24 @@ def main():
         elif guess == num:
             print("Good job! You guessed correctly.")
             print("It took you", str(guesses), "attempts to correctly guess the number.")
+           
+            lines.append(guesses)
+            lines.sort()
+            if len(lines) > 10:
+                del lines[:-1]
 
-            with open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "r") as f:
-                lines = f.readlines()
+            string = ""
+            for i in range(0, len(lines)):
+                string += str(lines[i])
+                if i < len(lines) - 1:
+                    string += "\n"
+                    
+            print("\nHighscores:")
+            print(string)
+            writef.write(string)
 
-            with open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "w") as f:
-                string = "Highscores:"
-                for i in range(1, 11):
-                    string += ("\n" +  (str(i) + ") ").rjust(5) +  lines[i[5:6]])
-
-                f.write(string)
-
-            with open("C:/users/jskhqzt/python-stuff/num_game/highscores.txt", "r") as f:
-                print("\n" + f.read())
-
-
+            makef.close()
+            writef.close()
             guessing = False
         print("")
 
