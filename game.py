@@ -63,14 +63,14 @@ def main():
             height -= 3
 
         color = color_changer(keys)
-        print(color)
-        color = color_cycler(keys[pygame.K_SPACE], color)
+        
+        #color = color_cycler(keys[pygame.K_SPACE], color)
         rectangle_manager(mousex, mousey, width, height, click)
 
         #draw the screen
         screen.fill((255,255,255))
         for i in rectangles:
-            pygame.draw.rect(screen, color, i)
+            pygame.draw.rect(screen, color, (i))
 
         #update the screen
         clock.tick(90)
