@@ -20,24 +20,6 @@ def getOpposite(thingy):
         else:
             return "black"
 
-def changeMouth():
-    if moody.mouth == "smile":
-        moody.mouth = "frown"
-    elif moody.mouth == "frown":
-        moody.mouth = "smile"
-
-def changeMood():
-    if moody.mood == "yellow":
-        moody.mood = "red"
-    elif moody.mood == "red":
-        moody.mood = "yellow"
-
-def changeEye():
-    if moody.eye == "black":
-        moody.eye = "blue"
-    elif moody.eye == "blue":
-        moody.eye = "black"
-
 def drawSmile():
     turtle.setheading(210)
     for i in range(1, 50):
@@ -86,10 +68,10 @@ def drawFace(mouth, mood, eye):
     turtle.goto(0,0)
 
 def main():
+    turtle.speed(10)
+    turtle.width(3)
     playing = True
     while playing:
-        turtle.speed(5)
-        print("moodys mood is", moody.mood)
         turtle.clear()
         drawFace(moody.mouth, moody.mood, moody.eye)
         while True:
@@ -102,11 +84,11 @@ def main():
             action = int(action) if action.isdigit() else None
             
             if action == 1:
-                changeMouth()
+                moody.changeMouth()
             elif action == 2:
-                changeMood()
+                moody.changeMood()
             elif action == 3:
-                changeEye()
+                moody.changeEye()
             elif action == 4:
                 playing = False
             else:
