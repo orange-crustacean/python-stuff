@@ -1,12 +1,24 @@
 import turtle
-
-class Face:
-    def __init__(self, mouth, mood, eye):
-        self.mouth = mouth
-        self.mood = mood
-        self.eye = eye
+from moody_class import Face
 
 moody = Face("smile", "yellow", "black")
+
+def getOpposite(thingy):
+    if thingy == "mouth":
+        if moody.mouth == "smile":
+            return "frown"
+        else:
+            return "smile"
+    elif thingy == "mood":
+        if moody.mood == "yellow":
+            return "angry"
+        elif moody.mood == "red":
+            return "happy"
+    elif thingy == "eye":
+        if moody.eye == "black":
+            return "blue"
+        else:
+            return "black"
 
 def changeMouth():
     if moody.mouth == "smile":
@@ -82,9 +94,9 @@ def main():
         drawFace(moody.mouth, moody.mood, moody.eye)
         while True:
             print("\nChange Moody's Face")
-            print("1) Make me ")
-            print("2) Make me angry")
-            print("3) Make my eyes blue")
+            print("1) Make me " + getOpposite("mouth"))
+            print("2) Make me " + getOpposite("mood"))
+            print("3) Make my eyes " + getOpposite("eye"))
             print("4) quit")
             action = input("Enter a selection: ")
             action = int(action) if action.isdigit() else None
